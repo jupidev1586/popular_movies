@@ -111,6 +111,12 @@ h1, h2, h3, h4, h5, h6 {
   cursor: pointer;
   display: block;
 }
+.btnModal--top_rated,
+.btnModal--filter
+{
+  cursor: pointer;
+  display: block;
+}
 .button {
 	-webkit-appearance: none;
 	border: none;
@@ -238,7 +244,9 @@ img {
   max-height: 82%;
 }
 /* The Modal (background) */
-.modal {
+.modal,
+.modal--filter
+{
   color: #333;
   display: none; /* Hidden by default */
   position: fixed; /* Stay in place */
