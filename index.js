@@ -241,7 +241,10 @@ import { modalBodyEl, createModal } from './src/functions.js';
               modalOverlayEl.style.backgroundImage = `url(https://image.tmdb.org/t/p/w500/${movies[dataIndex].poster_path})`;
               modalBodyEl.innerHTML = `
                 <div class="flexible">
-                  <img src="https://image.tmdb.org/t/p/w500/${movies[dataIndex].poster_path}" class="mw-100">
+                  <div class="fix-h">
+                    <img src="https://image.tmdb.org/t/p/w500/${movies[dataIndex].poster_path}" class="mw-100">
+                  </div>
+                  
                   <div>
                     <h3 class="mb-2">${movies[dataIndex].original_title}</h3>  
                     <p>
