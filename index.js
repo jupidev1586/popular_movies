@@ -42,18 +42,30 @@ import { modalBodyEl, createModal } from './src/functions.js';
       // },
       breakpoints: {
         "@0.00": {
+          slidesPerView: 1,
+          spaceBetween: 10,
+        },
+        "@0.50": {
           slidesPerView: 2,
           spaceBetween: 10,
         },
         "@0.75": {
-          slidesPerView: 4,
+          slidesPerView: 3,
           spaceBetween: 10,
         },
         "@1.00": {
-          slidesPerView: 6,
+          slidesPerView: 5,
           spaceBetween: 10,
         },
         "@1.50": {
+          slidesPerView: 5,
+          spaceBetween: 10,
+        },
+        "@1.75": {
+          slidesPerView: 6,
+          spaceBetween: 10,
+        },
+        "@2.50": {
           slidesPerView: 8,
           spaceBetween: 10,
         }
@@ -92,7 +104,9 @@ import { modalBodyEl, createModal } from './src/functions.js';
         modalOverlayEl.style.backgroundImage = `url(https://image.tmdb.org/t/p/w500/${movies[dataIndex].poster_path})`;
         modalBodyEl.innerHTML = `
           <div class="flexible">
-            <img src="https://image.tmdb.org/t/p/w500/${movies[dataIndex].poster_path}" class="mw-100">
+            <div class="fix-h">
+              <img src="https://image.tmdb.org/t/p/w500/${movies[dataIndex].poster_path}" class="mw-100">
+            </div>
             <div>
               <h3 class="mb-2">${movies[dataIndex].original_title}</h3>  
               <p>
@@ -148,18 +162,30 @@ import { modalBodyEl, createModal } from './src/functions.js';
         // },
         breakpoints: {
           "@0.00": {
+            slidesPerView: 1,
+            spaceBetween: 10,
+          },
+          "@0.50": {
             slidesPerView: 2,
             spaceBetween: 10,
           },
           "@0.75": {
-            slidesPerView: 4,
+            slidesPerView: 3,
             spaceBetween: 10,
           },
           "@1.00": {
-            slidesPerView: 6,
+            slidesPerView: 5,
             spaceBetween: 10,
           },
           "@1.50": {
+            slidesPerView: 5,
+            spaceBetween: 10,
+          },
+          "@1.75": {
+            slidesPerView: 6,
+            spaceBetween: 10,
+          },
+          "@2.50": {
             slidesPerView: 8,
             spaceBetween: 10,
           }
@@ -189,7 +215,9 @@ import { modalBodyEl, createModal } from './src/functions.js';
             return `
               <div class="swiper-slide">
                 <a class="btnModal" href="">
-                  <img src="https://image.tmdb.org/t/p/w500/${item.poster_path}" class="mw-100 " data-index="${index}">
+                  <div class="fix-h">
+                    <img src="https://image.tmdb.org/t/p/w500/${item.poster_path}" class="mw-100 " data-index="${index}">
+                  </div>
                   <h3 class="mt-1">${item.original_title}</h3>
                 </a>
               </div>

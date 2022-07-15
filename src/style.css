@@ -322,15 +322,62 @@ img {
     flex-direction: row;
     align-items: center;
   }
-  .flexible img {
-    height: 250px;
-    box-shadow: 0 0 6px 2px #514343;
-  }
+  
+}
+.flexible img {
+  box-shadow: 0 0 6px 2px #514343;
 }
 @media only screen and (max-width: 599.98px) {
   .modal-content {
     margin: 50% auto 0; 
   }
+}
+/* @media only screen and (max-width: 991.98px) {
+  .fix-h {
+    height: 300px;
+  }
+  .fix-h img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+  .modal-content {
+    margin: 50% auto 0; 
+  }
+
+} */
+
+/* @media only screen and (max-height: 479.98px) and (max-width: 991.98px) {
+  .fix-h {
+    height: 300px;
+  }
+  .fix-h img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+  .modal-content {
+    margin: 15% auto 0; 
+  }
+} */
+@media only screen and (max-width: 991.98px) {
+  .fix-h {
+    height: 300px;
+  }
+  .fix-h img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+  .modal-content {
+    margin: 15% auto 0; 
+  }
+}
+@media only screen and (max-width: 479.98px) {
+  .fix-h {
+    height: 150px;
+  }
+  
 }
 .swiper-slide img {
   transition: all .3s ease;
