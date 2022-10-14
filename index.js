@@ -11,11 +11,7 @@ import { modalBodyEl, createModal } from './src/functions.js';
   const loadingEl = document.querySelector('.loading');
  
   const API_KEY = `ad6baf64ad75ee341315fda666f2d48e`;
-  // const SITE_BASE = `https://api.themoviedb.org/4/list/534569?page=1&api_key=${API_KEY}`
-  // const SITE_BASE = `https://api.themoviedb.org/3/movie/{movie_id}?api_key=${API_KEY}&language=en-US`
   const SITE_BASE = `https://api.themoviedb.org/3/movie/top_rated?api_key=`;
-  // const SITE_BASE_POP = `https://api.themoviedb.org/3/movie/popular?api_key=`;
-  // const SITE_BASE = `https://api.themoviedb.org/3/find/{external_id}?api_key=ad6baf64ad75ee341315fda666f2d48e&external_source=imdb_id`;
 
   const SITE_BASE_GENRES = `https://api.themoviedb.org/3/genre/movie/list?api_key=`
 
@@ -36,10 +32,6 @@ import { modalBodyEl, createModal } from './src/functions.js';
     const swiper_top_rated = new Swiper(".swiper_top_rated", {
       slidesPerView: 8,
       spaceBetween: 10,
-      // pagination: {
-      //   el: ".swiper-pagination",
-      //   clickable: true,
-      // },
       breakpoints: {
         "@0.00": {
           slidesPerView: 1,
@@ -70,10 +62,6 @@ import { modalBodyEl, createModal } from './src/functions.js';
           spaceBetween: 10,
         }
       },
-      // navigation: {
-      //   nextEl: ".swiper-button-next__top_rated",
-      //   prevEl: ".swiper-button-prev__top_rated",
-      // },
     });
     
     movies = json.results;
@@ -97,10 +85,8 @@ import { modalBodyEl, createModal } from './src/functions.js';
       item.addEventListener("click", (event) => {
         event.preventDefault();
         const dataIndex = event.target.getAttribute("data-index");
-        // console.log('selected movie', movies[dataIndex])
         const modalClassEl = document.querySelector('.modal');
         const modalOverlayEl = document.querySelector('.modal-overlay');
-        // console.log(movies[dataIndex].vote_average / 2)
         modalOverlayEl.style.backgroundImage = `url(https://image.tmdb.org/t/p/w500/${movies[dataIndex].poster_path})`;
         modalBodyEl.innerHTML = `
           <div class="flexible">
@@ -117,7 +103,6 @@ import { modalBodyEl, createModal } from './src/functions.js';
           </div>
         `;
         modalClassEl.style.display = 'block';
-        // console.log('clicked')
       });
     })
     return loadingEl.style.display = 'none';
@@ -125,7 +110,7 @@ import { modalBodyEl, createModal } from './src/functions.js';
   .catch((err) => {
     console.error(err);
     moviesListEl.innerHTML = `<li>C'è stato un errore, riprovare!</li>`;
-    return []; // array vuoto
+    return []; 
   })
   .finally( () => {
     
@@ -141,7 +126,6 @@ import { modalBodyEl, createModal } from './src/functions.js';
   .then((json) => {
     console.log(json);
     genresList = json.genres
-    // console.log(genresList, 'genres list')
     const emptyOptionEl = document.createElement('option');
     emptyOptionEl.textContent = 'Choose your movie genre...';
     selectEl.appendChild(emptyOptionEl);
@@ -156,10 +140,6 @@ import { modalBodyEl, createModal } from './src/functions.js';
       const swiper_filter = new Swiper(".swiper_filter", {
         slidesPerView: 8,
         spaceBetween: 10,
-        // pagination: {
-        //   el: ".swiper-pagination",
-        //   clickable: true,
-        // },
         breakpoints: {
           "@0.00": {
             slidesPerView: 1,
@@ -198,9 +178,6 @@ import { modalBodyEl, createModal } from './src/functions.js';
       
       moviesListEl.innerHTML = genresList
       .filter( (item, index, array) => {
-        // console.log('selected Index target', parseInt(selectEl.options[selectEl.selectedIndex].value))
-        // console.log('item id', item.id)
-        // console.log('are the two values equal to each other?', selectEl.options[selectEl.selectedIndex].value === item.id)
         return selectEl.options[selectEl.selectedIndex].value == item.id
       })
       .map((item, index) => {
@@ -211,7 +188,6 @@ import { modalBodyEl, createModal } from './src/functions.js';
           movies = data.results
           moviesListEl.innerHTML = movies
           .map((item, index) => {
-            // console.log(item);
             return `
               <div class="swiper-slide">
                 <a class="btnModal" href="">
@@ -234,10 +210,8 @@ import { modalBodyEl, createModal } from './src/functions.js';
             item.addEventListener("click", (event) => {
               event.preventDefault();
               const dataIndex = event.target.getAttribute("data-index");
-              // console.log('selected movie', movies[dataIndex])
               const modalClassEl = document.querySelector('.modal');
               const modalOverlayEl = document.querySelector('.modal-overlay');
-              // console.log(movies[dataIndex].vote_average / 2)
               modalOverlayEl.style.backgroundImage = `url(https://image.tmdb.org/t/p/w500/${movies[dataIndex].poster_path})`;
               modalBodyEl.innerHTML = `
                 <div class="flexible">
@@ -255,7 +229,6 @@ import { modalBodyEl, createModal } from './src/functions.js';
                 </div>
               `;
               modalClassEl.style.display = 'block';
-              // console.log('clicked')
             });
           })
           return loadingEl.style.display = 'none';
